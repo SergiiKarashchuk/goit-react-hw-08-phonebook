@@ -1,6 +1,13 @@
 import styled, { keyframes } from 'styled-components';
-import { CgSpinner } from 'react-icons/cg';
 import { FaUserCircle } from 'react-icons/fa';
+import { CgSpinner } from 'react-icons/cg';
+
+export const UserIcon = styled(FaUserCircle)`
+  width: 50px;
+`;
+UserIcon.defaultProps = {
+  size: 50,
+};
 
 const spin = keyframes`
 0% {
@@ -20,36 +27,26 @@ Spinner.defaultProps = {
 
 export const ContactInfo = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 5px;
   flex-direction: column;
-  align-items: baseline;
-  height: 50px;
 `;
 export const Button = styled.button`
   padding: 5px;
-  border: 1px solid;
-  border-radius: 50px;
-  cursor: pointer;
-
+  border-color: #000000;
+  border-radius: 50%;
   &:hover {
-    color: tomato;
-    background-color: black;
+    border-color: red;
+  }
+  &:hover svg {
+    fill: red;
+  }
+  & svg {
+    fill: #000000;
   }
 `;
-
 export const Name = styled.span`
-  font-size: 18px;
-  font-weight: bold;
-  color: black;
+  color: #000000;
 `;
 export const Number = styled.span`
-  font-size: 14px;
-  color: black;
+  color: #560bad;
 `;
-
-export const UserIcon = styled(FaUserCircle)`
-  width: 60px;
-`;
-UserIcon.defaultProps = {
-  size: 40,
-};

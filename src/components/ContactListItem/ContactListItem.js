@@ -1,56 +1,66 @@
-import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/operations';
-import { selectError, selectIsLoading } from 'redux/selectors';
 import { useState } from 'react';
-import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+import { toast } from 'react-hot-toast';
 import { AiOutlineDelete } from 'react-icons/ai';
 
+// import { selectError, selectIsLoading } from 'redux/contacts/contactsSelectors';
+import { selectError, selectIsLoading } from 'redux/contacts/selectors';
+import { deleteContact } from 'redux/contacts/operations';
 import {
   Button,
   ContactInfo,
-  Spinner,
   Name,
   Number,
+  Spinner,
   UserIcon,
 } from './ContactListItem.styled';
 
-const ContactsListItem = ({ contact }) => {
+const ContactListItem = ({ id, name, number }) => {
   const [contactId, setContactId] = useState(null);
+
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
-
   const error = useSelector(selectError);
 
   const handleDelete = () => {
-    dispatch(deleteContact(contact.id));
+    dispatch(deleteContact(id));
     setContactId(contact.id);
 
     if (!error) {
-      toast.success(`Contact ${contact.name} successfully deleted`);
+      toast.success(`Contact ${name} successfully deleted`);
     }
   };
+
   return (
     <>
       <UserIcon />
       <ContactInfo>
-        <Name>{contact.name}</Name>
-        <Number>{contact.phone}</Number>
+        <Name>{name}</Name>
+        <Number>{number}</Number>
+        {/* <button type="button" onClick={handleDelete}>
+          Delete
+        </button> */}
       </ContactInfo>
 
-      {isLoading && contactId === contact.id ? (
+      {isLoading && contactId === id ? (
         <Spinner size={40} />
       ) : (
         <Button type="button" onClick={handleDelete} disabled={isLoading}>
-          <AiOutlineDelete size={30} />
+          <AiOutlineDelete size={20} />
         </Button>
       )}
     </>
   );
 };
 
-ContactsListItem.propTypes = {
-  contact: PropTypes.object.isRequired,
+// ContactListItem.propTypes = {
+//   contact: PropTypes.object.isRequired,
+// };
+ContactListItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
 };
 
-export default ContactsListItem;
+export default ContactListItem;

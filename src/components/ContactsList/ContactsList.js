@@ -1,27 +1,27 @@
-import ContactItem from 'components/ContactListItem';
-import { Item, List, Wrapper } from './ContactsList.styled';
 import { useSelector } from 'react-redux';
-import { selectContactByName, selectIsLoading } from 'redux/selectors';
+import { filterListContacts } from 'redux/filrer/selectors';
+
+import ContactItem from 'components/ContactListItem';
+import { Item, List, Wrapper } from './ContactList.styled';
 
 const ContactsList = () => {
-  const contacts = useSelector(selectContactByName);
-  const isLoading = useSelector(selectIsLoading);
+  const filteredContacts = useSelector(filterListContacts);
 
   return (
     <Wrapper>
-      {contacts.length > 0 && (
+      {filteredContacts.length > 0 ? (
         <>
           <List>
-            {contacts.map(contact => (
-              <Item key={contact.id}>
-                <ContactItem contact={contact} />
+            {filteredContacts.map(({ id, name, number }) => (
+              <Item key={id}>
+                <ContactItem id={id} name={name} number={number} />
               </Item>
             ))}
           </List>
         </>
+      ) : (
+        <b>No contact found</b>
       )}
-
-      {!isLoading && contacts.length === 0 && <p>Contacts list is empty</p>}
     </Wrapper>
   );
 };
