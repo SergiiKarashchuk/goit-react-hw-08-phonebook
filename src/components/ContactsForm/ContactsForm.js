@@ -7,6 +7,7 @@ import {
   InputTel,
   Button,
   FormikWrapper,
+  Message,
 } from './ContactsForm.styled';
 
 const initialValues = {
@@ -44,13 +45,17 @@ const ContactsForm = ({ onSubmit }) => {
       <FormBox autoComplete="off">
         <label>
           <span>Name</span>
-          <InputName type="text" name="name" />
-          <ErrorMessage name="name" />
+          <InputName placeholder="Enter contact name" type="text" name="name" />
+          <ErrorMessage component={Message} name="name" />
         </label>
         <label>
-          <span>Tel</span>
-          <InputTel type="tel" name="number" />
-          <ErrorMessage name="number" />
+          <span>Phone</span>
+          <InputTel
+            placeholder="Enter contact phone"
+            type="tel"
+            name="number"
+          />
+          <ErrorMessage component={Message} name="number" />
         </label>
         <Button type="submit">Add contact</Button>
       </FormBox>

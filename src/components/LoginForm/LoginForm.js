@@ -1,11 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 import {
+  ErrorMessageText,
+  Container,
+  Label,
+  Text,
+  Input,
   FormBox,
-  InputEmail,
-  InputPassword,
-  Button,
-  FormikWrapper,
+  SubmitButton,
+  Title,
 } from './LoginForm.styled';
 import { ErrorMessage } from 'formik';
 import { object, string } from 'yup';
@@ -16,22 +19,21 @@ const initialValues = {
 };
 
 const userSchema = object({
-  email: string().required(),
-  password: string().required(),
+    email: string().email('Invalid email').required('Email is required'),
+    password: string().required('Password is required'),
 });
 
 const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = ({ email, password }, { resetForm }) => {
-    const contact = { email, password };
-    console.log(contact);
     dispatch(logIn({ email, password }));
     resetForm();
   };
 
   return (
-    <FormikWrapper
+    <Container>
+    <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={userSchema}
@@ -49,7 +51,8 @@ const LoginForm = () => {
         </label>
         <Button type="submit">Log In</Button>
       </FormBox>
-    </FormikWrapper>
+    </Formik>
+    </Container>
   );
 };
 

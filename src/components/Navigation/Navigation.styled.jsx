@@ -1,13 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const Nav = styled.nav`
+  display: flex;
+  gap: 30px;
+`;
+
 export const Link = styled(NavLink)`
-  display: inline-block;
-  text-decoration: none;
-  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 700;
-  color: #2a363b;
-  &:active {
-    color: #e84a5f;
-  }
 `;

@@ -1,15 +1,23 @@
-import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks';
-import { Link } from './Navigation.styled';
+import { Nav, Link } from './Navigation.styled';
+import { AiFillHome } from 'react-icons/ai';
+import { GiBookmarklet } from 'react-icons/gi';
 
 const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
-      <Link to="/">Home</Link>
-      {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
-    </nav>
+    <Nav>
+      <Link to="/">
+        <AiFillHome />
+        Home
+      </Link>
+      {isLoggedIn && (
+        <Link to="/contacts">
+          <GiBookmarklet /> Contacts
+        </Link>
+      )}
+    </Nav>
   );
 };
 

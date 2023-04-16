@@ -4,6 +4,7 @@ import { CgSpinner } from 'react-icons/cg';
 
 export const UserIcon = styled(FaUserCircle)`
   width: 50px;
+  color: #560bad;
 `;
 UserIcon.defaultProps = {
   size: 50,
@@ -34,6 +35,8 @@ export const Button = styled.button`
   padding: 5px;
   border-color: #000000;
   border-radius: 50%;
+  transition: border-color 0.2s ease;
+
   &:hover {
     border-color: red;
   }
@@ -42,6 +45,7 @@ export const Button = styled.button`
   }
   & svg {
     fill: #000000;
+    transition: fill 0.2s ease;
   }
 `;
 export const Name = styled.span`

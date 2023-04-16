@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+
+  & b {
+    font-size: 20px;
+  }
 `;
 export const List = styled.ul`
   display: flex;

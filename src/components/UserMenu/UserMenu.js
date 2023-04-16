@@ -2,7 +2,8 @@ import { useDispatch } from 'react-redux';
 
 import { logOut } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
-import { UserName, Wrapper } from './UserMenu.styled';
+import { UserName, Wrapper, Button, Avatar } from './UserMenu.styled';
+import { CiLogout } from 'react-icons/ci';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
@@ -14,10 +15,18 @@ const UserMenu = () => {
 
   return (
     <Wrapper>
-      <UserName>Welcome, {user.email}</UserName>
-      <button type="button" onClick={onLogOut}>
-        LogOut
-      </button>
+      <UserName>
+        <Avatar
+          width={40}
+          height={40}
+          src="https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg"
+          alt="user avatar"
+        />
+        Welcome, {user.email}
+      </UserName>
+      <Button type="button" onClick={onLogOut}>
+        <CiLogout size={25} />
+      </Button>
     </Wrapper>
   );
 };

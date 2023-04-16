@@ -1,98 +1,112 @@
-import { Form, Field, Formik } from 'formik';
-import styled from 'styled-components';
+import { Form, Field } from 'formik';
+import styled, { keyframes } from 'styled-components';
 
-export const FormikWrapper = styled(Formik)`
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+export const Title = styled.h2`
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 30px;
+  color: #000;
+`;
+
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  text-align: center;
-  background-color: #0e8dbc;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  max-width: 500px;
+  margin: 0 auto;
 `;
 
 export const FormBox = styled(Form)`
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
-  width: 260px;
-  background: white;
-  border-radius: 30px;
-  & label {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    & span {
-      margin-bottom: 15px;
-      text-shadow: 0 1px 0 #cccccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb,
-        0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1),
-        0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3),
-        0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25),
-        0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
-    }
-  }
-`;
-
-export const InputEmail = styled(Field)`
-  padding: 0 20px;
-  margin-bottom: 10px;
-  background: #e9eff6;
-  line-height: 40px;
-  border-width: 0;
-  border-radius: 20px;
-  font-family: 'Roboto', sans-serif;
-  font-style: italic;
-  font-size: 18px;
-`;
-
-export const InputPassword = styled(InputEmail)``;
-
-export const Button = styled.button`
-  --color: #560bad;
-  padding: 5px;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  border-radius: 15px;
+  background: #e3e3e3;
+  box-shadow: 16px 16px 32px #c8c8c8, -16px -16px 32px #fefefe;
+  animation: ${fadeIn} 0.5s ease;
+`;
+
+export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  width: 100%;
+`;
+
+export const Text = styled.span`
+  display: flex;
+  gap: 5px;
+  align-items: end;
   justify-content: center;
-  font-family: inherit;
-  width: 8em;
-  height: 2.6em;
-  line-height: 2.5em;
-  margin: 20px;
-  position: relative;
-  overflow: hidden;
-  border: 2px solid var(--color);
-  transition: color 0.5s;
-  z-index: 1;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+`;
+
+export const Input = styled(InputEmail)`
+  width: 100%;
+  padding: 10px;
+
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s ease;
+
+  &::placeholder {
+    font-size: 15px;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  }
+`;
+
+export const ErrorMessageText = styled.p`
+  text-align: center;
+  margin-top: 10px;
+  
+  color: red;
   font-size: 17px;
-  border-radius: 6px;
-  font-weight: 500;
-  color: var(--color);
-  &:before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    background: var(--color);
-    height: 150px;
-    width: 200px;
-    border-radius: 50%;
   }
+`;
+
+export const SubmitButton = styled.button`
+  width: 50%;
+  height: 45px;
+  margin-top: 10px;
+  cursor: pointer;
+
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 2px solid #000;
+  background-color: transparent;
+  border-radius: 5px;
+  transition: 0.5s;
+
   &:hover {
-    color: #fff;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
   }
-  &:before {
-    top: 100%;
-    left: 100%;
-    transition: all 0.7s;
-  }
-  &:hover:before {
-    top: -30px;
-    left: -30px;
-  }
-  &:active:before {
-    background: #3a0ca3;
-    transition: background 0s;
+
+  &:focus {
+    outline: none;
   }
 `;
