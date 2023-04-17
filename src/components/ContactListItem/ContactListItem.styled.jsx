@@ -1,14 +1,24 @@
 import styled, { keyframes } from 'styled-components';
-import { FaUserCircle } from 'react-icons/fa';
 import { CgSpinner } from 'react-icons/cg';
 
-export const UserIcon = styled(FaUserCircle)`
-  width: 50px;
-  color: #560bad;
+export const BtnWrapper = styled.div`
+  display: flex;
+  gap: 5px;
 `;
-UserIcon.defaultProps = {
-  size: 50,
-};
+
+export const UserIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  font-weight: 700;
+  background: transparent;
+  color: #000;
+  border: solid 2px #560bad;
+  border-radius: 50%;
+`;
 
 const spin = keyframes`
 0% {
@@ -31,12 +41,29 @@ export const ContactInfo = styled.div`
   gap: 5px;
   flex-direction: column;
 `;
-export const Button = styled.button`
+
+export const ButtonChange = styled.button`
   padding: 5px;
   border-color: #000000;
   border-radius: 50%;
   transition: border-color 0.2s ease;
+  &:hover {
+    border-color: yellow;
+  }
+  &:hover svg {
+    fill: yellow;
+  }
+  & svg {
+    fill: #000000;
+    transition: fill 0.2s ease;
+  }
+`;
 
+export const ButtonDelete = styled.button`
+  padding: 5px;
+  border-color: #000000;
+  border-radius: 50%;
+  transition: border-color 0.2s ease;
   &:hover {
     border-color: red;
   }
@@ -48,6 +75,7 @@ export const Button = styled.button`
     transition: fill 0.2s ease;
   }
 `;
+
 export const Name = styled.span`
   color: #000000;
 `;

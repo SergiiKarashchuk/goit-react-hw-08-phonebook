@@ -1,5 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
+import { ErrorMessage, Formik } from 'formik';
+import { object, string } from 'yup';
+import { FiMail } from 'react-icons/fi';
+import { RiLockPasswordFill } from 'react-icons/ri';
 import {
   ErrorMessageText,
   Container,
@@ -10,8 +14,6 @@ import {
   SubmitButton,
   Title,
 } from './LoginForm.styled';
-import { ErrorMessage } from 'formik';
-import { object, string } from 'yup';
 
 const initialValues = {
   email: '',
@@ -19,8 +21,8 @@ const initialValues = {
 };
 
 const userSchema = object({
-    email: string().email('Invalid email').required('Email is required'),
-    password: string().required('Password is required'),
+  email: string().email('Invalid email').required('Email is required'),
+  password: string().required('Password is required'),
 });
 
 const LoginForm = () => {
@@ -33,25 +35,40 @@ const LoginForm = () => {
 
   return (
     <Container>
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={userSchema}
-    >
-      <FormBox autoComplete="off">
-        <label>
-          <span>Email</span>
-          <InputEmail type="text" name="email" />
-          <ErrorMessage name="email" />
-        </label>
-        <label>
-          <span>Password</span>
-          <InputPassword type="password" name="password" />
-          <ErrorMessage name="password" />
-        </label>
-        <Button type="submit">Log In</Button>
-      </FormBox>
-    </Formik>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={userSchema}
+      >
+        <FormBox autoComplete="off">
+          <Title>Authorization</Title>
+          <Label>
+            <Text>
+              <FiMail size={20} />
+              Email
+            </Text>
+            <Input
+              placeholder="Please enter your email address"
+              type="text"
+              name="email"
+            />
+            <ErrorMessage component={ErrorMessageText} name="email" />
+          </Label>
+          <Label>
+            <Text>
+              <RiLockPasswordFill size={20} />
+              Password
+            </Text>
+            <Input
+              placeholder="Please enter your password"
+              type="password"
+              name="password"
+            />
+            <ErrorMessage component={ErrorMessageText} name="password" />
+          </Label>
+          <SubmitButton type="submit">Log In</SubmitButton>
+        </FormBox>
+      </Formik>
     </Container>
   );
 };

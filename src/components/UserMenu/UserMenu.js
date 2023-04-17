@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 
 import { logOut } from 'redux/auth/operations';
-import { useAuth } from 'hooks';
+import { useAuth } from 'hooks/useAuth';
 import { UserName, Wrapper, Button, Avatar } from './UserMenu.styled';
 import { CiLogout } from 'react-icons/ci';
 

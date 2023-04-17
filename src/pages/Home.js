@@ -4,7 +4,9 @@ import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const TitleWrapper = styled.div`
-  padding-top: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
   height: 100vh;
 `;
 

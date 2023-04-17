@@ -1,11 +1,9 @@
-import { useSelector } from 'react-redux';
-import { filterListContacts } from 'redux/filrer/selectors';
-
 import ContactItem from 'components/ContactListItem';
 import { Item, List, Wrapper } from './ContactList.styled';
+import { useContacts } from 'hooks';
 
 const ContactsList = () => {
-  const filteredContacts = useSelector(filterListContacts);
+  const { filteredContacts } = useContacts();
 
   return (
     <Wrapper>

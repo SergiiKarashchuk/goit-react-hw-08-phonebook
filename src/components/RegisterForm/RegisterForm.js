@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/operations';
 import { ErrorMessage, Formik } from 'formik';
 import { object, string } from 'yup';
+import { RiLockPasswordFill } from 'react-icons/ri';
 import { FaUserAlt } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
-import { RiLockPasswordFill } from 'react-icons/ri';
+import { register } from 'redux/auth/operations';
 
 import {
   ErrorMessageText,
@@ -12,6 +12,7 @@ import {
   Label,
   Text,
   Input,
+  FormBox,
   SubmitButton,
   Title,
 } from './RegisterForm.styled';
@@ -35,7 +36,6 @@ const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = ({ name, email, password }, { resetForm }) => {
-    const contact = { name, email, password };
     dispatch(register({ name, email, password }));
     resetForm();
   };
