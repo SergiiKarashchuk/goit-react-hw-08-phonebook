@@ -10,13 +10,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/goit-react-hw-08-phonebook">
-      <App />
-      <GlobalStyle />
-    </BrowserRouter>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        {/* Обов'язкове прописання basename="/goit-react-hw-08-phonebook" */}
         <BrowserRouter basename="/goit-react-hw-08-phonebook">
           <App />
           <GlobalStyle />
