@@ -32,7 +32,7 @@ const ContactListItem = ({ id, name, number }) => {
 
   const handleDelete = () => {
     dispatch(deleteContact(id));
-    setContactId(contact.id);
+    setContactId(id);
 
     if (!error) {
       toast.success(`Contact ${name} successfully deleted`);
