@@ -26,7 +26,7 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
 `;
 export const FormBox = styled(Form)`
@@ -88,7 +88,7 @@ export const SubmitButton = styled.button`
   height: 45px;
   margin-top: 10px;
   cursor: pointer;
-  
+
   font-size: 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -102,7 +102,7 @@ export const SubmitButton = styled.button`
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
   }
-  
+
   &:focus {
     outline: none;
   }

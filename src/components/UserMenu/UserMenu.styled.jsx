@@ -12,7 +12,6 @@ export const UserName = styled.p`
   gap: 10px;
 
   font-weight: 500;
-  font-style: italic;
   color: #fff;
 `;
 

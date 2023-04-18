@@ -19,7 +19,7 @@ const UserMenu = () => {
         <Avatar
           width={40}
           height={40}
-          src="https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg"
+          src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg"
           alt="user avatar"
         />
         Welcome, {user.email}

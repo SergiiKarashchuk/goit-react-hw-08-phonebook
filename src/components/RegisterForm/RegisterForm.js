@@ -53,7 +53,7 @@ const RegisterForm = () => {
             <Text>
               <FaUserAlt size={20} /> Name
             </Text>
-            <Input placeholder="Please enter a name" type="text" name="name" />
+            <Input placeholder="Please enter name" type="text" name="name" />
             <ErrorMessage component={ErrorMessageText} name="name" />
           </Label>
           <Label>
@@ -61,11 +61,7 @@ const RegisterForm = () => {
               <FiMail size={20} />
               Email
             </Text>
-            <Input
-              placeholder="Please enter email address"
-              type="text"
-              name="email"
-            />
+            <Input placeholder="Please enter email" type="text" name="email" />
             <ErrorMessage component={ErrorMessageText} name="email" />
           </Label>
           <Label>

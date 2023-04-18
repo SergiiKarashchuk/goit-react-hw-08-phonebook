@@ -9,7 +9,7 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   font-size: 30px;
-  background: rgba(24, 20, 20, 0.987);
+  background: brown;
   & a {
     color: #fff;
     transition: border-radius 0.2s ease, background 0.2s ease, color 0.2s ease,

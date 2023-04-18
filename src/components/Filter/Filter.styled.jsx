@@ -9,9 +9,8 @@ export const LabelFilter = styled.label`
     padding: 5px;
     font-size: 20px;
     color: #000;
-    background: #98e063;
-    border-radius: 15px;
-    text-shadow: 3px 5px 2px #474747;
+    background: yellow;
+    border-radius: 5px;
   }
 `;
 
@@ -20,11 +19,9 @@ export const InputFilter = styled.input`
   background: #e9eff6;
   line-height: 40px;
   border-width: 0;
-  border-radius: 20px;
+  border-radius: 5px;
   font-family: 'Roboto', sans-serif;
-  font-style: italic;
   font-size: 18px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;
 
   &:focus {
     outline: none;

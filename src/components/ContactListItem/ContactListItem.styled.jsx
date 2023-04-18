@@ -17,7 +17,7 @@ export const UserIcon = styled.div`
   background: transparent;
   color: #000;
   border: solid 2px #560bad;
-  border-radius: 50%;
+  border-radius: 15px;
 `;
 
 const spin = keyframes`
@@ -44,6 +44,7 @@ export const ContactInfo = styled.div`
 
 export const ButtonChange = styled.button`
   padding: 5px;
+  width: 40px;
   border-color: #000000;
   border-radius: 50%;
   transition: border-color 0.2s ease;
@@ -60,20 +61,15 @@ export const ButtonChange = styled.button`
 `;
 
 export const ButtonDelete = styled.button`
-  padding: 5px;
-  border-color: #000000;
-  border-radius: 50%;
-  transition: border-color 0.2s ease;
-  &:hover {
-    border-color: red;
-  }
-  &:hover svg {
-    fill: red;
-  }
-  & svg {
-    fill: #000000;
-    transition: fill 0.2s ease;
-  }
+padding: 5px;
+width: 40px;
+border: 1px solid;
+border-radius: 50%;
+cursor: pointer;
+
+&:hover {
+  color: tomato;
+  background-color: black;
 `;
 
 export const Name = styled.span`
